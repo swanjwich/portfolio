@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --primary: #2d3133;
+    --secondary: #50A7C8;
+    --tertiary: #d8d2c0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Signika Negative', sans-serif;
+}
+
+body {
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-color: #f7f1e1;
+}
+
+.dark body {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-color: var(--primary);
+}
+
+.font-koulen {
+    font-family: 'Koulen', sans-serif;
+}
+
+.font-signika {
+    font-family: 'Signika Negative', sans-serif;
+}
