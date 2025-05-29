@@ -1,4 +1,4 @@
-**Hannah Tano - My First Portfolio!**
+#Hi there! Hannah Tano here.
 
 Welcome to my personal developer portfolio built with React, Tailwind CSS, and Framer Motion. This website showcases who I am as a web developer—featuring my projects, skills, and a clean, animated interface that adapts beautifully to both light and dark modes.
 
