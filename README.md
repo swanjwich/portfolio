@@ -1,12 +1,18 @@
-# React + Vite
+**Hannah Tano - My First Portfolio!**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal developer portfolio built with React, Tailwind CSS, and Framer Motion. This website showcases who I am as a web developer—featuring my projects, skills, and a clean, animated interface that adapts beautifully to both light and dark modes.
 
-Currently, two official plugins are available:
+**✨ Features**
+⚡ Framer Motion Animations – Smooth entrance effects and hover interactions
+🌙 Dark Mode Toggle – Built-in switch for light/dark theme preferences
+🎯 Responsive Design – Mobile-friendly layout using Tailwind CSS
+🎨 Custom Grid Background – Graph-paper inspired aesthetic
+🔗 Interactive Navigation – Smooth scroll, fixed social links, and navbar
+💼 Projects & Skills Sections – Cleanly organized highlights of my work
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**🛠️ Tech Stack**
+React
+Tailwind CSS
+Framer Motion
+Responsive CSS Grid Layout
+Modern UI/UX design principles
