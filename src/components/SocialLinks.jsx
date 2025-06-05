@@ -15,7 +15,7 @@ export default function SocialLinks({ show = true }) {
           {/* Updated container with navbar-like styling */}
           <div className="backdrop-blur-sm p-3 flex flex-col items-center gap-3">
             <motion.a
-              href="https://facebook.com/grasyahann"
+              href="https://www.linkedin.com/in/hannah-grace-tano/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--secondary)]/20 border border-white/10 hover:border-[var(--secondary)]/30 transition-all duration-300 group"
@@ -25,7 +25,7 @@ export default function SocialLinks({ show = true }) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <i className="ri-facebook-fill text-black/70 dark:text-white/70 group-hover:text-[var(--secondary)] text-xl transition-colors duration-300"></i>
+              <i className="ri-linkedin-box-fill text-black/70 dark:text-white/70 group-hover:text-[var(--secondary)] text-xl transition-colors duration-300"></i>
             </motion.a>
 
             <motion.a

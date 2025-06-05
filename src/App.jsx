@@ -11,9 +11,14 @@ import Skills from "./components/Skills";
 
 function App() {
   const welcomeRef = useRef(null);
+  const aboutRef = useRef(null);
   const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+
   const isWelcomeInView = useInView(welcomeRef, { margin: "-50% 0px -50% 0px" });
+  const isAboutInView = useInView(aboutRef, { margin: "-20% 0px -20% 0px" });
   const isSkillsInView = useInView(skillsRef, { margin: "-20% 0px -20% 0px" });
+  const isProjectsInView = useInView(projectsRef, { margin: "-20% 0px -20% 0px" });
 
   const [darkMode, setDarkMode] = useState(true);
 
@@ -26,17 +31,21 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="overflow-x-hidden" >
+    <div className="min-h-screen w-full overflow-x-hidden">
       <div className="text-white">
         <Welcome sectionRef={welcomeRef} />
-        <About />
+        <About sectionRef={aboutRef} />
+        <Projects sectionRef={projectsRef} />
         <Skills sectionRef={skillsRef} />
-        <Projects />
 
         {!isWelcomeInView && (
           <>
             <SocialLinks />
-            <Navbar isSkillsInView={isSkillsInView} />
+            <Navbar
+              hideNavbar={isSkillsInView || isProjectsInView}
+              isAboutInView={isAboutInView}
+            />
+
             <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
           </>
         )}

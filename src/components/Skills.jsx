@@ -3,240 +3,161 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function Skills({ sectionRef }) {
-    const [hoveredSkill, setHoveredSkill] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('Frontend');
+  const [hoveredSkill, setHoveredSkill] = useState(null);
 
-    const skills = [
-        {
-            name: "HTML",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-            color: "#E34F26"
-        },
-        {
-            name: "CSS",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-            color: "#1572B6"
-        },
-        {
-            name: "JavaScript",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-            color: "#F7DF1E"
-        },
-        {
-            name: "C#",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
-            color: "#239120"
-        },
-        {
-            name: "PHP",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
-            color: "#777BB4"
-        },
-        {
-            name: "jQuery",
-            logo: "https://static-00.iconduck.com/assets.00/jquery-original-wordmark-icon-485x512-7kn0h2yt.png",
-            color: "#3178C6"
-        },
-        {
-            name: "Bootstrap",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/964px-Bootstrap_logo.svg.png",
-            color: "#7952B3"
-        },
-        {
-            name: "Tailwind CSS",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png",
-            color: "#06B6D4"
-        },
-        {
-            name: "Vue.js",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-            color: "#4FC08D"
-        },
-        {
-            name: "React",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-            color: "#61DAFB"
-        },
-        {
-            name: "Laravel",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png",
-            color: "#FF2D20"
-        },
-        {
-            name: "ASP.NET Core",
-            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png",
-            color: "#512BD4"
-        },
-        {
-            name: "MySQL",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-            color: "#4479A1"
-        },
-        {
-            name: "SQL Server",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg",
-            color: "#CC2927"
-        },
-        {
-            name: "SSMS",
-            logo: "https://cdn.prod.website-files.com/627fe3133bae75e7bfbb9b2a/66922a2f5485bcd665857545_32a03aee0c76419ec5bde950a62883bc.png",
-            color: "#0078D7"
-        },
-        {
-            name: "Git",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-            color: "#F05032"
-        },
-        {
-            name: "GitHub",
-            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-            color: "#181717"
-        },
-        {
-            name: "REST API",
-            logo: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzYxREFGQiI+PHBhdGggZD0iTTEyIDJMMTMuMDkgOC4yNkwyMCA5TDEzLjA5IDE1Ljc0TDEyIDIyTDEwLjkxIDE1Ljc0TDQgOUwxMC45MSA4LjI2TDEyIDJaIi8+PC9zdmc+",
-            color: "#61DAFB"
-        },
-        {
-            name: "Framer Motion",
-            logo: "https://cdn.worldvectorlogo.com/logos/framer-motion.svg",
-            color: "#0055FF"
-        }
-    ];
+  const categories = {
+    Frontend: [
+      { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", color: "#E34F26" },
+      { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", color: "#1572B6" },
+      { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", color: "#F7DF1E" },
+      { name: "jQuery", logo: "https://static-00.iconduck.com/assets.00/jquery-original-wordmark-icon-485x512-7kn0h2yt.png", color: "#3178C6" },
+      { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", color: "#61DAFB" },
+      { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", color: "#4FC08D" },
+      { name: "Tailwind CSS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1200px-Tailwind_CSS_Logo.svg.png", color: "#06B6D4" },
+      { name: "Bootstrap", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/964px-Bootstrap_logo.svg.png", color: "#7952B3" },
+      { name: "Framer Motion", logo: "https://cdn.worldvectorlogo.com/logos/framer-motion.svg", color: "#0055FF" },
+    ],
+    Backend: [
+      { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", color: "#777BB4" },
+      { name: "Laravel", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png", color: "#FF2D20" },
+      { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", color: "#239120" },
+      { name: "ASP.NET Core", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/1200px-.NET_Core_Logo.svg.png", color: "#512BD4" },
+    ],
+    Database: [
+      { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", color: "#4479A1" },
+      { name: "SQL Server", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg", color: "#47A248" },
+      { name: "SQLite", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Sqlite-square-icon.svg/1024px-Sqlite-square-icon.svg.png", color: "#CC2927" },
+      { name: "Firebase", logo: "https://www.gstatic.com/devrel-devsite/prod/vd9663438c989ac592eff7c92ff013bc8fa2578bc40babda19f4e44265d95782f/firebase/images/touchicon-180.png", color: "#336791" },
+    ],
+    Tools: [
+      { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", color: "#F05032" },
+      { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", color: "#181717" },
+      { name: "Vite", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Vitejs-logo.svg/1200px-Vitejs-logo.svg.png", color: "#181717" },
+      { name: "VS Code", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png", color: "#181717" },
+      { name: "Microsoft Visual Studio", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Visual_Studio_Icon_2022.svg/1200px-Visual_Studio_Icon_2022.svg.png", color: "#2496ED" },
+    ],
+  };
 
-    const container = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05 },
+    },
+  };
 
-    const item = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 }
-    };
+  const item = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 },
+  };
 
-    return (
-        <section ref={sectionRef} className="relative py-20 px-5 sm:px-10 max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className="text-lg text-[var(--primary)] dark:text-[var(--tertiary)] max-w-2xl text-left"
-                >
-                    Technologies and tools I've been using so far...
-                </motion.p>
-            </div>
+  return (
+    <section
+      ref={sectionRef} id="skills"
+      className="relative py-16 px-5 max-width mx-auto overflow-hidden"
+    >
+      <div className="relative max-w-5xl mx-auto z-10">
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold text-[var(--primary)] dark:text-[var(--tertiary)] mb-2"
+          >
+            Skills
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="text-base text-gray-600 dark:text-gray-400 mb-3"
+          >
+            My technical toolkit — from coding languages to frameworks.
+          </motion.p>
+          <div className="w-32 h-px bg-gray-400 dark:bg-gray-600 mx-auto"></div>
+        </div>
 
-            <motion.div
-                variants={container}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+        <motion.div
+          className="flex flex-wrap justify-center gap-2 mb-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          {Object.keys(categories).map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`cursor-pointer px-4 py-2 rounded-lg text-sm font-medium transition-all backdrop-blur-md border border-gray-200/30 dark:border-gray-700/30 ${activeCategory === category
+                ? 'dark:bg-[var(--tertiary)]/90 dark:text-[var(--primary)] bg-[var(--primary)]/90 text-[var(--tertiary)] shadow-lg border-blue-300/50 dark:border-blue-400/50'
+                : 'dark:bg-[var(--primary)]/70 dark:text-[var(--tertiary)] dark:hover:bg-[var(--tertiary)]/80 dark:hover:text-[var(--primary)] bg-[var(--tertiary)]/70 text-[var(--primary)] hover:bg-[var(--primary)]/80 hover:text-[var(--tertiary)] hover:shadow-md'
+                }`}
             >
-                {skills.map((skill, index) => (
-                    <motion.div
-                        key={index}
-                        variants={item}
-                        whileHover={{ scale: 1.05 }}
-                        onMouseEnter={() => setHoveredSkill(skill.name)}
-                        onMouseLeave={() => setHoveredSkill(null)}
-                        className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-lg hover:shadow-[var(--secondary)]/10 transition-all cursor-pointer relative overflow-hidden group"
+              {category}
+            </button>
+          ))}
+        </motion.div>
+
+        <div className="min-h-[300px]">
+          <motion.div
+            key={activeCategory}
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+          >
+            {categories[activeCategory].map((skill, index) => (
+              <motion.div
+                key={`${activeCategory}-${index}`}
+                variants={item}
+                whileHover={{ scale: 1.03 }}
+                onMouseEnter={() => setHoveredSkill(skill.name)}
+                onMouseLeave={() => setHoveredSkill(null)}
+                className="bg-[var(--tertiary)]/80 dark:bg-[var(--primary)]/80 backdrop-blur-md rounded-lg p-4 flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transition-all cursor-pointer border border-gray-200/50 dark:border-gray-700/50 relative overflow-hidden hover:border-blue-300/50 dark:hover:border-blue-400/50"
+              >
+                <div className="w-12 h-12 mb-3 flex items-center justify-center">
+                  {skill.logo && skill.logo !== "..." ? (
+                    <img
+                      src={skill.logo}
+                      alt={`${skill.name} logo`}
+                      className="w-full h-full object-contain"
+                      style={{ filter: skill.name === 'GitHub' ? 'invert(1)' : 'none' }}
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: `${skill.color}20` }}
                     >
-                        {/* Logo */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{
-                                opacity: hoveredSkill === skill.name ? 1 : 0,
-                                scale: hoveredSkill === skill.name ? 1 : 0.5
-                            }}
-                            transition={{ duration: 0.3 }}
-                            className="absolute inset-0 flex items-center justify-center"
-                        >
-                            <img
-                                src={skill.logo}
-                                alt={`${skill.name} logo`}
-                                className="w-12 h-12 object-contain"
-                                style={{
-                                    filter: skill.name === 'GitHub'
-                                        ? 'invert(1)'
-                                        : 'none'
-                                }}
-                            />
-                        </motion.div>
+                      <span
+                        className="text-2xl font-bold"
+                        style={{ color: skill.color }}
+                      >
+                        {skill.name.charAt(0)}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-                        {/* Text */}
-                        <motion.span
-                            animate={{
-                                opacity: hoveredSkill === skill.name ? 0 : 1,
-                                y: hoveredSkill === skill.name ? 10 : 0
-                            }}
-                            transition={{ duration: 0.3 }}
-                            className="text-[var(--primary)] dark:text-[var(--tertiary)] font-medium"
-                        >
-                            {skill.name}
-                        </motion.span>
+                <span className="text-gray-900 dark:text-white font-medium text-sm">
+                  {skill.name}
+                </span>
 
-                        {/* Hover background effect */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{
-                                opacity: hoveredSkill === skill.name ? 0.1 : 0
-                            }}
-                            transition={{ duration: 0.3 }}
-                            className="absolute inset-0 rounded-xl"
-                            style={{ backgroundColor: skill.color }}
-                        />
-
-                        {/* Glow effect */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{
-                                opacity: hoveredSkill === skill.name ? 0.3 : 0,
-                                scale: hoveredSkill === skill.name ? 1.2 : 0.8
-                            }}
-                            transition={{ duration: 0.4 }}
-                            className="absolute inset-0 rounded-xl blur-lg -z-10"
-                            style={{ backgroundColor: skill.color }}
-                        />
-                    </motion.div>
-                ))}
-            </motion.div>
-
-            <div className="absolute -top-20 -left-20 w-40 h-40 bg-[var(--secondary)] rounded-full blur-3xl -z-10"></div>
-            <div className="absolute -bottom-10 -right-20 w-60 h-60 bg-[var(--primary)]/20 dark:bg-[var(--tertiary)]/20 rounded-full blur-3xl -z-10"></div>
-
-            <motion.div
-                animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.3, 0.6, 0.3]
-                }}
-                transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-                className="absolute top-32 right-10 w-6 h-6 bg-[var(--secondary)] rounded-full blur-sm"
-            />
-
-            <motion.div
-                animate={{
-                    y: [0, 20, 0],
-                    opacity: [0.2, 0.5, 0.2]
-                }}
-                transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 2
-                }}
-                className="absolute bottom-32 left-10 w-4 h-4 bg-[var(--tertiary)] rounded-full blur-sm"
-            />
-        </section>
-    );
+                {hoveredSkill === skill.name && (
+                  <motion.div
+                    className="absolute inset-0 bg-black/5 dark:bg-white/5"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 }

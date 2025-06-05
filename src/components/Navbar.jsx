@@ -2,31 +2,48 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-export default function Navbar({ isSkillsInView }) {
+export default function Navbar({ hideNavbar, isAboutInView }) {
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [activeSection, setActiveSection] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+            const scrollY = window.scrollY;
+            const sections = ['me', 'projects', 'skills', 'contact'];
 
-            if (isSkillsInView  ) {
+            for (let section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const offsetTop = element.offsetTop - 100;
+                    const offsetBottom = offsetTop + element.offsetHeight;
+                    if (scrollY >= offsetTop && scrollY < offsetBottom) {
+                        setActiveSection(section);
+                        break;
+                    }
+                }
+            }
+
+            const currentScrollY = window.scrollY;
+            if (isAboutInView) {
+                setShowNavbar(true);
+            } else if (hideNavbar) {
                 if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                    setShowNavbar(false); // Hide when scrolling down
+                    setShowNavbar(false);
                 } else {
-                    setShowNavbar(true); // Show when scrolling up
+                    setShowNavbar(true);
                 }
             } else {
-                // Always show navbar when in About section or when first entering navigation area
                 setShowNavbar(true);
             }
 
+
             setLastScrollY(currentScrollY);
         };
-        
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [lastScrollY, isSkillsInView]);
+    }, [hideNavbar, isAboutInView, lastScrollY]);
 
     return (
         <AnimatePresence>
@@ -47,9 +64,13 @@ export default function Navbar({ isSkillsInView }) {
                         <div className="flex items-center gap-14">
 
                             <div className="group relative">
-                                <a href="#me" className="text-sm flex items-center gap-2 justify-center transition-all duration-300 hover:scale-110">
-                                    <i className="ri-user-line text-[var(--secondary)]"></i>
-                                    <span className="text-[var(--primary)] dark:text-[var(--tertiary)] hover:text-[var(--secondary)]">About</span>
+                                <a
+                                    href="#me"
+                                    className={`text-sm flex items-center gap-2 justify-center transition-all duration-300 hover:scale-110 
+                                        ${activeSection === 'me' ? 'text-[var(--secondary)] font-bold' : 'text-[var(--primary)] dark:text-[var(--tertiary)]'
+                                        }`}                                >
+                                    <span>About</span>
+
                                 </a>
 
                                 {/* <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-2 bg-black/80 backdrop-blur-sm rounded-lg text-white text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -59,20 +80,40 @@ export default function Navbar({ isSkillsInView }) {
                             </div>
 
                             <div className="group relative">
-                                <a href="#projects" className="text-sm flex items-center gap-2 justify-center transition-all duration-300 hover:scale-110">
-                                    <i className="ri-folder-line text-[var(--secondary)]"></i>
-                                    <span className="text-[var(--primary)] dark:text-[var(--tertiary)] hover:text-[var(--secondary)]">Projects</span>
+                                <a
+                                    href="#projects"
+                                    className={`text-sm flex items-center gap-2 justify-center transition-all duration-300 hover:scale-110 
+                                        ${activeSection === 'projects' ? 'text-[var(--secondary)] font-bold' : 'text-[var(--primary)] dark:text-[var(--tertiary)]'
+                                        }`}                                >
+                                    <span>Projects</span>
+
                                 </a>
                                 {/* <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-2 bg-black/80 backdrop-blur-sm rounded-lg text-white text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                             Projects
                             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-black/80 rotate-45"></div>
                         </div> */}
                             </div>
+                            <div className="group relative">
+                                <a
+                                    href="#skills"
+                                    className={`text-sm flex items-center gap-2 justify-center transition-all duration-300 hover:scale-110 
+                                        ${activeSection === 'skills' ? 'text-[var(--secondary)] font-bold' : 'text-[var(--primary)] dark:text-[var(--tertiary)]'
+                                        }`}                                >
+                                    <span>Skills</span>
+                                </a>
+                                {/* <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-2 bg-black/80 backdrop-blur-sm rounded-lg text-white text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                            Skills
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1 w-2 h-2 bg-black/80 rotate-45"></div>
+                        </div> */}
+                            </div>
 
                             <div className="group relative">
-                                <a href="#" className="text-sm flex items-center gap-2 justify-center transition-all duration-300 hover:scale-110">
-                                    <i className="ri-mail-line text-[var(--secondary)]"></i>
-                                    <span className="text-[var(--primary)] dark:text-[var(--tertiary)] hover:text-[var(--secondary)]">Contact</span>
+                                <a
+                                    href="#contact"
+                                    className={`text-sm flex items-center gap-2 justify-center transition-all duration-300 hover:scale-110 
+                                        ${activeSection === 'contact' ? 'text-[var(--secondary)] font-bold' : 'text-[var(--primary)] dark:text-[var(--tertiary)]'
+                                        }`}                                >
+                                    <span>Contact</span>
                                 </a>
                                 {/* <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-2 bg-black/80 backdrop-blur-sm rounded-lg text-white text-sm font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                             Contact
