@@ -1,7 +1,35 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function SocialLinks({ show = true }) {
+export default function SocialLinks({ show = true, isInContact = false }) {
+  if (isInContact) {
+    return (
+      <div className="flex justify-end lg:justify-start gap-3">
+        <a
+          href="https://www.linkedin.com/in/hannah-grace-tano/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--secondary)]/20 border border-white/10 hover:border-[var(--secondary)]/30 transition-all duration-300 group"
+        >
+          <i className="ri-linkedin-box-fill text-black/70 dark:text-white/70 group-hover:text-[var(--secondary)] text-xl transition-colors duration-300"></i>
+        </a>
+        <a
+          href="mailto:hannahtano05@gmail.com"
+          className="flex items-center justify-center w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--secondary)]/20 border border-white/10 hover:border-[var(--secondary)]/30 transition-all duration-300 group"
+        >
+          <i className="ri-mail-fill text-black/70 dark:text-white/70 group-hover:text-[var(--secondary)] text-xl transition-colors duration-300"></i>
+        </a>
+        <a
+          href="https://github.com/swanjwich"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--secondary)]/20 border border-white/10 hover:border-[var(--secondary)]/30 transition-all duration-300 group"
+        >
+          <i className="ri-github-fill text-black/70 dark:text-white/70 group-hover:text-[var(--secondary)] text-xl transition-colors duration-300"></i>
+        </a>
+      </div>
+    );
+  }
   return (
     <AnimatePresence>
       {show && (
@@ -12,7 +40,6 @@ export default function SocialLinks({ show = true }) {
           exit={{ opacity: 0, x: -50, scale: 0.8 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
         >
-          {/* Updated container with navbar-like styling */}
           <div className="backdrop-blur-sm p-3 flex flex-col items-center gap-3">
             <motion.a
               href="https://www.linkedin.com/in/hannah-grace-tano/"
@@ -21,7 +48,12 @@ export default function SocialLinks({ show = true }) {
               className="flex items-center justify-center w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--secondary)]/20 border border-white/10 hover:border-[var(--secondary)]/30 transition-all duration-300 group"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.4,
+                exit: { duration: 0.3, delay: 0 }
+              }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -33,7 +65,12 @@ export default function SocialLinks({ show = true }) {
               className="flex items-center justify-center w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--secondary)]/20 border border-white/10 hover:border-[var(--secondary)]/30 transition-all duration-300 group"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.4,
+                exit: { duration: 0.3, delay: 0 }
+              }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -47,7 +84,12 @@ export default function SocialLinks({ show = true }) {
               className="flex items-center justify-center w-10 h-10 rounded-xl bg-black/5 dark:bg-white/5 hover:bg-[var(--secondary)]/20 border border-white/10 hover:border-[var(--secondary)]/30 transition-all duration-300 group"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.6 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{
+                duration: 0.4,
+                delay: 0.4,
+                exit: { duration: 0.3, delay: 0 }
+              }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >

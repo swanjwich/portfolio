@@ -1,8 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import DarkMode from './DarkMode';
 
-export default function Navbar({ hideNavbar, isAboutInView }) {
+export default function Navbar({ hideNavbar, isAboutInView, darkMode, setDarkMode }) {
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [activeSection, setActiveSection] = useState('');
@@ -61,7 +62,7 @@ export default function Navbar({ hideNavbar, isAboutInView }) {
                         <h1 className="text-[var(--secondary)] font-bold font-koulen tracking-widest text-xl">
                             <a href="#">HANNAH T.</a>
                         </h1>
-                        <div className="flex items-center gap-14">
+                        <div className="flex items-center gap-10">
 
                             <div className="group relative">
                                 <a
@@ -125,6 +126,7 @@ export default function Navbar({ hideNavbar, isAboutInView }) {
                                     Resume
                                 </button>
                             </div>
+                            <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
                         </div>
 
                     </div>

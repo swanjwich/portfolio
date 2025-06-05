@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Github } from 'lucide-react';
 import { useRef } from 'react';
 
