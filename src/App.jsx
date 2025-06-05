@@ -9,6 +9,7 @@ import DarkMode from "./components/DarkMode";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   const welcomeRef = useRef(null);
@@ -51,6 +52,7 @@ function App() {
             />
           </>
         )}
+        <BackToTop />
       </div>
     </div>
   );
