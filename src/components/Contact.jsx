@@ -9,9 +9,9 @@ export default function Contact({ sectionRef }) {
         >
             <div className="max-w-5xl mx-auto bg-[var(--tertiary)] dark:bg-[var(--primary)] p-12 sm:p-20 rounded-2xl border border-gray-300 dark:border-gray-700">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-                    <div className="space-y-6">
+                    <div className="space-y-6 text-center sm:text-left">
                         <h2 className="text-3xl font-light text-[var(--primary)] dark:text-[var(--tertiary)] mb-6">
-                            Got an idea?
+                            Looking to team up?
                         </h2>
                         <div className="space-y-4">
                             <p className="text-lg text-gray-500 dark:text-gray-400 tracking-wide">
@@ -26,11 +26,11 @@ export default function Contact({ sectionRef }) {
                     </div>
 
                     <div className="space-y-6">
-                        <h2 className="text-3xl font-light text-[var(--primary)] dark:text-[var(--tertiary)] text-right">
+                        <h2 className="text-3xl font-light text-[var(--primary)] dark:text-[var(--tertiary)] text-center sm:text-right">
                             Let's connect
                         </h2>
                         <div className="space-y-4">
-                            <div className="flex justify-end">
+                            <div className="flex justify-center sm:justify-end">
                                 <SocialLinks isInContact={true} />
                             </div>
                         </div>

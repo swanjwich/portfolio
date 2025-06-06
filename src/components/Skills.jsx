@@ -64,7 +64,7 @@ export default function Skills({ sectionRef }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-[var(--primary)] dark:text-[var(--tertiary)] mb-2"
+            className="text-3xl font-medium text-[var(--primary)] dark:text-[var(--tertiary)] mb-2"
           >
             Skills
           </motion.h2>

@@ -13,7 +13,7 @@ export default function Welcome({ sectionRef }) {
     >
       <div ref={ref} className="flex flex-col items-center">
         <motion.h1
-          className="text-8xl font-koulen tracking-normal text-[var(--primary)] dark:text-[var(--tertiary)]"
+          className="text-7xl sm:text-8xl text-center font-koulen tracking-normal text-[var(--primary)] dark:text-[var(--tertiary)]"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
@@ -32,7 +32,7 @@ export default function Welcome({ sectionRef }) {
       </div>
 
       <a
-        href="#me"
+        href="#about"
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-[var(--primary)] dark:text-[var(--tertiary)] text-2xl"
       >
         <i className="ri-arrow-down-line"></i>

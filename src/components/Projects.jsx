@@ -117,7 +117,7 @@ export default function Projects({ sectionRef }) {
                   )}
                 </div>
                 <motion.h3
-                  className="text-xl font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-3"
+                  className="text-xl font-medium text-[var(--secondary)] sm:text-[var(--primary)] sm:dark:text-[var(--tertiary)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 mb-3"
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? {
                     opacity: 1,

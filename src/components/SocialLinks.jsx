@@ -34,7 +34,7 @@ export default function SocialLinks({ show = true, isInContact = false }) {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed bottom-5 left-12 flex flex-col items-center gap-3 z-50"
+          className="hidden sm:flex fixed bottom-5 left-12 flex-col items-center gap-3 z-50"
           initial={{ opacity: 0, x: -50, scale: 0.8 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           exit={{ opacity: 0, x: -50, scale: 0.8 }}
