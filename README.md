@@ -11,8 +11,7 @@ Welcome to my personal developer portfolio built with React, Tailwind CSS, and F
 💼 Projects & Skills Sections – Cleanly organized highlights of my work  
 
 **🛠️ Tech Stack**  
-React  
-Tailwind CSS  
-Framer Motion   
-Responsive CSS Grid Layout  
-Modern UI/UX design principles  
+- React
+- Tailwind CSS
+- Framer Motion
+
